@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JL</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:wght@600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  </head>
+  <div class="wrapper">
+    <body>
+      <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="welcome-page">
+        <div class="welcome-page__fadein">
+          <iframe
+            src="https://giphy.com/embed/qROyPKBZWmgFN9EQlW"
+            width="120"
+            height="120"
+            frameborder="0"
+            class="giphy-embed"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="glow"></div>
+        <div class="clouds">
+          <div class="welcome-message__container">
+            <div class="welcome-message__firstSubcontainer">
+              <h1 class="welcome hello">Hi, I'm</h1>
+              <h1 class="welcome firstname">Joaquin</h1>
+              <h1 class="welcome lastname">Lopez</h1>
+            </div>
+            <div class="welcome-message__subcontainer">
+              <h2 class="welcome fullstack">Fullstack</h2>
+              <h2 class="welcome webdeveloper">Engineer</h2>
+            </div>
+          </div>
+
+          <button class="visit-page">
+            <div class="arrow">
+              <div class="top"></div>
+              <div class="middle"></div>
+              <div class="bottom"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+      <main>
+        <nav>
+          <ul class="nav-links">
+            <li>
+              <a onclick="navLink('about')">About</a>
+            </li>
+            <li>
+              <a onclick="navLink('projects')">Portfolio</a>
+            </li>
+            <li>
+              <a onclick="navLink('contact')">Contact Me</a>
+            </li>
+          </ul>
+          <div class="burger">
+            <div class="top-line"></div>
+            <div class="middle-line"></div>
+            <div class="bottom-line"></div>
+          </div>
+        </nav>
+        <div class="vertical-nav">
+          <div class="logo">
+            <img src="./logo2.png" />
+          </div>
+          <a href="mailto: joaquinllopezzz@gmail.com" target="_blank" class="email">joaquinllopezzz@gmail.com</a>
+          <div class="vertical-line"></div>
+          <ul>
+            <li class="linkedin">
+              <a href="https://www.linkedin.com/in/joaquin-lopez-a955451a8/"><i class="fab fa-github fa-2x"></i></a>
+            </li>
+            <li class="github">
+              <a href="www.github.com/joaquinlopez00"><i class="fab fa-linkedin fa-2x"></i></a>
+            </li>
+            <!-- <li>
+              <a h"www.github.com/joaquinlopez00"></a>ref=
+            </li> -->
+          </ul>
+        </div>
+        <section>
+          <div class="about">
+            <div class="about__header">
+              <h2 id="about">ABOUT</h2>
+              <div class="about__underline"></div>
+            </div>
+            <div class="about-content__container">
+              <div class="about-content__image">
+                <div id="about__vertical-line" class="line"></div>
+                <div id="about__horizontal-line" class="line"></div>
+                <div id="hover"><p>hover me</p></div>
+                <img src="./Resumefr.png" alt="profile image" />
+              </div>
+              <div class="about-content__manifesto">
+                <h3 id="about-hello">Hello again,</h3>
+                <p id="about-hello__content">
+                  I'm a self-motivated engineer who is passionate about making things for the web that are beautifully
+                  complex. While attending college, I began dabbling with coding in one of my very first classes and was
+                  immediately hooked. Shortly after my first year, I attended a Fullstack Tech bootcamp to focus on
+                  learning what I enjoyed most. Now, I am looking to join a company that I can learn and grow with.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="projects-section">
+          <div class="projects">
+            <div class="projects__header">
+              <h2 id="projects">Portfolio</h2>
+              <div class="projects__underline"></div>
+            </div>
+            <div class="projects-content__container">
+              <div class="projects-skills">
+                <h3 id="technical">Technical Skills</h3>
+                <div class="projects-skills__container">
+                  <div class="projects-skills-languages">
+                    <h4>Languages</h4>
+                    <div class="projects-skills-content__container">
+                      <i class="fab fa-js fa-3x"></i>
+                      <i class="fab fa-python fa-3x"></i>
+                    </div>
+                  </div>
+                  <div class="projects-skills-languages">
+                    <h4>Frameworks</h4>
+                    <div class="projects-skills-content__container">
+                      <i class="fab fa-react fa-3x"></i>
+                      <p>Django</p>
+                    </div>
+                  </div>
+
+                  <div class="projects-skills-languages">
+                    <h4>Other</h4>
+                    <div class="projects-skills-other__container">
+                      <ul>
+                        <li>Redux</li>
+                        <li>Gsap</li>
+                        <li>MongoDb</li>
+                        <li>Mongoose</li>
+                        <li>Node.js</li>
+                      </ul>
+                      <ul>
+                        <li>Express</li>
+                        <li>HTML/CSS</li>
+                        <li>Sass</li>
+                        <li>Material UI</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="horizontal-line-break"></div>
+              </div>
+            </div>
+
+            <div class="projects-projects__container">
+              <h3 id="projects-header">Projects</h3>
+              <div class="projects-items__container">
+                <div class="projects__container">
+                  <div class="projects-gif__left">
+                    <iframe
+                      src="https://giphy.com/embed/OSYSybjVfrCvYM5rBj"
+                      width="480"
+                      height="366"
+                      frameborder="0"
+                      class="giphy-embed"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                  <div class="projects-about__right">
+                    <div class="projects-about__header">
+                      <h4>Nearby.</h4>
+                      <p>
+                        Nearby. is a project that was built with the goal of creating a platform on the web that could
+                        help people find events near them via an interactive map. It gave users the tools to create
+                        accounts, log-in with custom authentication, create public or private password-protected events,
+                        and join events to see the details. This is a passion project that I plan on continuing to
+                        develop and refine long-term.
+                        <em>This is my most recently started project and is a work-in-progress.</em>
+                      </p>
+                      <div class="projects-about-project__container">
+                        <div class="project-info info">
+                          <h5>Built using</h5>
+                          <div class="projects-list__container">
+                            <ul>
+                              <li>React</li>
+                              <li>Redux/Redux Persist</li>
+                              <li>Node.js</li>
+                              <li>Express</li>
+                              <li>MongoDb/Mongoose</li>
+                              <li>Joi</li>
+                              <li>Bcrypt</li>
+                              <li>Mapbox Gl</li>
+                              <li>GSAP + scroll trigger</li>
+                              <li>SCSS</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="project-view info">
+                          <h5>View</h5>
+                          <div class="projects-list__container">
+                            <a href="https://github.com/joaquinllopez00/nearby" target="_blank"
+                              ><i class="fab fa-github fa-2x"></i
+                            ></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="projects-items__container">
+                <div class="projects__container">
+                  <div class="projects-about__left">
+                    <div class="projects-about__header">
+                      <h4>IVGDb</h4>
+                      <p>
+                        With IVGDb I set out to create somewhat of an IMDB clone, but for video games. This project
+                        allows users to view upcoming, popular, as well as newly released games. It also allows users to
+                        search for titles as well as add games to their library. The project will keep them saved
+                        WITHOUT logging in utilizing Redux-Persist. The goal of this project was to get more comfortable
+                        with Redux + Redux Persist.
+                      </p>
+                      <div class="projects-about-project__container">
+                        <div class="project-info info">
+                          <h5>Built using</h5>
+                          <div class="projects-list__container">
+                            <ul>
+                              <li>React</li>
+                              <li>Redux/Redux Persist</li>
+                              <li>Styled Components</li>
+                              <li>Axios</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="project-view info">
+                          <h5>View</h5>
+                          <div class="projects-list__container">
+                            <a href="https://github.com/joaquinllopez00/video-games-imbd" target="_blank"
+                              ><i class="fab fa-github fa-2x"></i
+                            ></a>
+                            <a
+                              href="https://joaquinllopez00.github.io/video-games-imbd/#/video-games-imbd/"
+                              target="_blank"
+                              ><i class="fas fa-link fa-2x"></i
+                            ></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="projects-gif__right">
+                    <iframe
+                      src="https://giphy.com/embed/PZ6aHqcQHmJdqW95RZ"
+                      width="480"
+                      height="288"
+                      frameborder="0"
+                      class="giphy-embed"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class="projects-items__container">
+                <div class="projects__container">
+                  <div class="projects-gif__left">
+                    <iframe
+                      src="https://giphy.com/embed/uIh4UZudMKcIA5FqPv"
+                      width="480"
+                      height="298"
+                      frameborder="0"
+                      class="giphy-embed"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                  <div class="projects-about__right">
+                    <div class="projects-about__header">
+                      <h4>Aesthetic Generator</h4>
+                      <p>
+                        Aesthetic Generator was a tool I built to help solve the problem when trying to find new color
+                        schemes when creating websites. It allows you to randomly generate color scheme, as well as edit
+                        each individual colors hue, brightness, or hex. It also allows you to save any given 'aesthetic'
+                        within local storage and edit it.
+                      </p>
+                      <div class="projects-about-project__container">
+                        <div class="project-info info">
+                          <h5>Built using</h5>
+                          <div class="projects-list__container">
+                            <ul>
+                              <li>Javascript</li>
+                              <li>CSS</li>
+                              <li>HTML</li>
+                              <li>Chroma</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="project-view info">
+                          <h5>View</h5>
+                          <div class="projects-list__container">
+                            <a href="https://github.com/joaquinllopez00/aesthetic-generator" target="_blank"
+                              ><i class="fab fa-github fa-2x"></i
+                            ></a>
+                            <a href="https://joaquinllopez00.github.io/aesthetic-generator/" target="_blank"
+                              ><i class="fas fa-link fa-2x"></i
+                            ></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="projects-items__container">
+                <div class="projects__container">
+                  <div class="projects-about__left">
+                    <div class="projects-about__header">
+                      <h4>Apple Tribunal</h4>
+                      <p>
+                        This site is a tribute to Apple. While creating this project I wanted to familarize myself with
+                        Scroll Magic, as well as get more comfortable with CSS and Javascript.
+                      </p>
+                      <div class="projects-about-project__container">
+                        <div class="project-info info">
+                          <h5>Built using</h5>
+                          <div class="projects-list__container">
+                            <ul>
+                              <li>Javascrip</li>
+                              <li>HTML/CSS</li>
+                              <li>Scroll Magic</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="project-view info">
+                          <h5>View</h5>
+                          <div class="projects-list__container">
+                            <a href="https://github.com/joaquinllopez00/apple-tribunal" target="_blank"
+                              ><i class="fab fa-github fa-2x"></i
+                            ></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="projects-gif__right">
+                    <iframe
+                      src="https://giphy.com/embed/nEjd2DunoGtabzTr7J"
+                      width="480"
+                      height="268"
+                      frameborder="0"
+                      class="giphy-embed"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="contact-section">
+          <h2 id="contact">CONTACT</h2>
+          <div class="contact__underline"></div>
+          <h4 id="question">Have a question? Need a developer?</h4>
+          <form onsubmit="return false" id="contact-form">
+            <input required type="text" placeholder="Enter your name" id="user_name" name="user_name" />
+            <input required type="email" placeholder="Enter your email" id="user_email" name="user_email" />
+            <textarea required rows="10" placeholder="Your message" id="message" name="message"></textarea>
+            <div class="submit-contents">
+              <p id="submit-message"></p>
+              <input type="submit" value="Submit" />
+            </div>
+          </form>
+        </section>
+      </main>
+
+      <script src="/app.js"></script>
+    </body>
+  </div>
+</html>
