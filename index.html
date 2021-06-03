@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>JL</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -19,8 +23,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   </head>
-  <div class="wrapper">
-    <body>
+  <body>
+    <div class="wrapper">
       <div class="stars"></div>
       <div class="twinkling"></div>
       <div class="welcome-page">
@@ -304,7 +308,7 @@
                           <h5>Built using</h5>
                           <div class="projects-list__container">
                             <ul>
-                              <li>Javascript</li>
+                              <li>JavaScript</li>
                               <li>CSS</li>
                               <li>HTML</li>
                               <li>Chroma</li>
@@ -331,17 +335,17 @@
                 <div class="projects__container">
                   <div class="projects-about__left">
                     <div class="projects-about__header">
-                      <h4>Apple Tribunal</h4>
+                      <h4>Apple Tribute</h4>
                       <p>
                         This site is a tribute to Apple. While creating this project I wanted to familarize myself with
-                        Scroll Magic, as well as get more comfortable with CSS and Javascript.
+                        Scroll Magic, as well as get more comfortable with CSS and JavaScript.
                       </p>
                       <div class="projects-about-project__container">
                         <div class="project-info info">
                           <h5>Built using</h5>
                           <div class="projects-list__container">
                             <ul>
-                              <li>Javascrip</li>
+                              <li>JavaScript</li>
                               <li>HTML/CSS</li>
                               <li>Scroll Magic</li>
                             </ul>
@@ -383,13 +387,17 @@
             <textarea required rows="10" placeholder="Your message" id="message" name="message"></textarea>
             <div class="submit-contents">
               <p id="submit-message"></p>
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" id="submit" />
             </div>
           </form>
         </section>
+        <div class="back-to-top">
+          <p>Joaquin Lopez © 2021</p>
+          <i onclick="toTop()" class="fas fa-arrow-circle-up fa-2x to-top"></i>
+        </div>
       </main>
 
       <script src="app.js"></script>
-    </body>
-  </div>
+    </div>
+  </body>
 </html>

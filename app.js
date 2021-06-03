@@ -3,7 +3,17 @@ const navSlide = () => {
   const nav = document.querySelector(".nav-links");
   const navLinks = document.querySelectorAll(".nav-links li");
   burger.addEventListener("click", () => {
-    nav.classList.toggle("nav-active");
+    console.log(nav.style.opacity === "0");
+    if (nav.style.opacity === "" || nav.style.opacity === "0") {
+      nav.style.display = "flex";
+      gsap.to(nav, { opacity: 1 });
+      burger.classList.toggle("toggle");
+    } else {
+      burger.classList.toggle("toggle");
+      gsap.to(nav, { opacity: 0 });
+      nav.style.display = "none";
+    }
+
     navLinks.forEach((link, index) => {
       if (link.style.animation) {
         link.style.animation = "";
@@ -11,7 +21,6 @@ const navSlide = () => {
         link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
       }
     });
-    burger.classList.toggle("toggle");
   });
 };
 
@@ -57,18 +66,17 @@ const welcomeFadeIn = () => {
     { opacity: 1, x: 0, rotationY: 0, rotationZ: 0 },
     "-=1",
   );
-  welcomeTL.fromTo(welcomeHello, { opacity: 1, x: 0 }, { opacity: 0 }, "+=1");
 
-  if (window.innerWidth < 400) {
-    welcomeTL.fromTo(firstname, { marginLeft: "0" }, { marginLeft: "155px" }, "-=0.8");
+  if (window.innerWidth > 400) {
+    welcomeTL.fromTo(welcomeHello, { opacity: 1, x: 0 }, { opacity: 0 }, "+=1");
+    welcomeTL.fromTo(
+      lastname,
+      { display: "none", opacity: 0, rotationX: -180 },
+      { display: "block", rotationX: 0, opacity: 1 },
+      "-=1.5",
+    );
+    welcomeTL.fromTo(hello, { x: 0 }, { x: -235 }, "-=1");
   }
-  welcomeTL.fromTo(
-    lastname,
-    { display: "none", opacity: 0, rotationX: -180 },
-    { display: "block", rotationX: 0, opacity: 1 },
-    "-=1.5",
-  );
-  welcomeTL.fromTo(hello, { x: 0 }, { x: -235 }, "-=1");
   welcomeTL.fromTo(arrow, { y: +20, opacity: 0 }, { y: 0, opacity: 1 }, "-=1");
 };
 
@@ -146,6 +154,8 @@ let k = 0;
 let l = 0;
 scroll = () => {
   const section = document.querySelectorAll("section");
+
+  overflow();
 
   console.log(projectSections[3].offsetTop - window.scrollY);
   // console.log(projectSections[1]);
@@ -287,22 +297,13 @@ const loadingGif = () => {
   }, 3000);
 };
 
-// const contact = (e) => {
-//   e.preventDefault();
-
-// };
-
-window.onload = function () {
+window.onload = () => {
   document.getElementById("contact-form").addEventListener("submit", function (event) {
     event.preventDefault();
-    // generate a five digit number for the contact_number variable
-    // this.contact_number.value = (Math.random() * 100000) | 0;
-    // these IDs from the previous steps
     const host = document.querySelector("#user_name").value;
     const emailAdd = document.querySelector("#user_email").value;
     const contents = document.querySelector("#message").value;
     const mess = document.getElementById("submit-message");
-    console.log(host, emailAdd, contents);
     emailjs
       .send("service_97k0vwi", "template_yvwn842", {
         from_name: host,
@@ -312,14 +313,14 @@ window.onload = function () {
         from_email: emailAdd,
       })
       .then(
-        function () {
+        () => {
           mess.style.color = "#1dee7b";
           mess.innerText = "Success! I'll be getting back to you shortly!";
           setTimeout(() => {
             mess.innerText = "";
           }, 3000);
         },
-        function (error) {
+        (error) => {
           mess.style.color = "#ee1d52";
           mess.innerText = "Something broke, email me at joaquinllopezzz@gmail.com";
         },
@@ -327,8 +328,23 @@ window.onload = function () {
   });
 };
 
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
+//disable scrolling when nav is in mobile view
+const overflow = () => {
+  if (window.pageXOffset !== 0) {
+    window.scrollTo(0, window.pageYOffset);
+  }
+};
+
 const navLink = (link) => {
   let x;
+  let burger = document.querySelector(".burger");
+  let navBar = document.querySelector(".nav-links");
+  let navLinks = document.querySelectorAll(".nav-links li");
+
   switch (link) {
     case "about":
       x = document.getElementById("about").offsetTop;
@@ -337,6 +353,14 @@ const navLink = (link) => {
         left: 0,
         behavior: "smooth",
       });
+      burger.classList.toggle("toggle");
+      if (window.pageYOffset < 500) {
+        gsap.to(navBar, { opacity: "0" });
+
+        navLinks.forEach((link, index) => {
+          link.style.animation = "";
+        });
+      }
       break;
     case "projects":
       x = document.getElementById("projects").offsetTop;
@@ -345,6 +369,13 @@ const navLink = (link) => {
         left: 0,
         behavior: "smooth",
       });
+      burger.classList.toggle("toggle");
+      if (window.pageYOffset < 500) {
+        gsap.to(navBar, { opacity: "0" });
+        navLinks.forEach((link, index) => {
+          link.style.animation = "";
+        });
+      }
       break;
     case "contact":
       x = document.getElementById("contact").offsetTop;
@@ -353,14 +384,24 @@ const navLink = (link) => {
         left: 0,
         behavior: "smooth",
       });
+      burger.classList.toggle("toggle");
+      if (window.pageYOffset < 500) {
+        gsap.to(navBar, { opacity: "0" });
+        navLinks.forEach((link, index) => {
+          link.style.animation = "";
+        });
+      }
       break;
   }
 };
 
-// 51A403893E1ECC165A59DA91CF2138989C34AC1C462C69D220CCCCF05A864AAF0A9E73813A208D9FC5FCF048704818FB
-
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
+const toTop = () => {
+  console.log("top");
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
 };
 
 const App = () => {
