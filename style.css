@@ -476,7 +476,7 @@ section {
 }
 
 .vertical-nav a:hover {
-  color: #69ced9;
+  color: #ee1d52;
 }
 
 .email {
@@ -1054,6 +1054,7 @@ textarea:focus {
   html,
   body {
     overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   .about-content__image {
