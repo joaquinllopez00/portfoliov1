@@ -923,7 +923,7 @@ textarea:focus {
 }
 
 #submit-message {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: "Raleway", sans-serif;
 }
 
@@ -937,6 +937,7 @@ textarea:focus {
   padding: 0.2rem;
   border: none;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1050px) {

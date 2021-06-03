@@ -39,9 +39,13 @@ const welcomeFadeIn = () => {
   const hello = document.querySelector(".welcome-message__firstSubcontainer");
   const welcomeHello = document.querySelector(".hello");
   const lastname = document.querySelector(".lastname");
-
+  const arrow = document.querySelector(".arrow");
   const fullstack = welcome[3];
   const developer = welcome[4];
+  document.body.style.overflow = "hidden";
+  setTimeout(() => {
+    document.body.style.overflow = "visible";
+  }, 3000);
   const welcomeTL = gsap.timeline({ defaults: { duration: 0.7, ease: "power4.inOut" } });
   welcomeTL.fromTo(backdrop, { opacity: 1 }, { opacity: 0, display: "none" }, "+=3");
   welcomeTL.fromTo(clouds, { opacity: 0 }, { opacity: 1 }, "-=0.5");
@@ -65,6 +69,7 @@ const welcomeFadeIn = () => {
     "-=1.5",
   );
   welcomeTL.fromTo(hello, { x: 0 }, { x: -235 }, "-=1");
+  welcomeTL.fromTo(arrow, { y: +20, opacity: 0 }, { y: 0, opacity: 1 }, "-=1");
 };
 
 const buttonTransform = () => {
@@ -354,9 +359,9 @@ const navLink = (link) => {
 
 // 51A403893E1ECC165A59DA91CF2138989C34AC1C462C69D220CCCCF05A864AAF0A9E73813A208D9FC5FCF048704818FB
 
-// window.onbeforeunload = function () {
-//   window.scrollTo(0, 0);
-// };
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
 
 const App = () => {
   loadingGif();
