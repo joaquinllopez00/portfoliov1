@@ -1,44 +1,11 @@
-const navSlide = () => {
-  const burger = document.querySelector(".burger");
-  const nav = document.querySelector(".nav-links");
-  const navLinks = document.querySelectorAll(".nav-links li");
-  burger.addEventListener("click", () => {
-    console.log(nav.style.opacity === "0");
-    if (nav.style.opacity === "" || nav.style.opacity === "0") {
-      nav.style.display = "flex";
-      gsap.to(nav, { opacity: 1 });
-      burger.classList.toggle("toggle");
-    } else {
-      burger.classList.toggle("toggle");
-      gsap.to(nav, { opacity: 0 });
-      nav.style.display = "none";
-    }
+const loadingGif = () => {
+  const gif = document.querySelector("iframe");
 
-    navLinks.forEach((link, index) => {
-      if (link.style.animation) {
-        link.style.animation = "";
-      } else {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
-      }
-    });
-  });
+  setTimeout(() => {
+    document.body.style.overflow = "visible";
+    gsap.to(gif, { opacity: 0, scale: 2 });
+  }, 3000);
 };
-
-// const welcomeFadeIn = () => {
-//   const clouds = document.querySelector(".clouds");
-//   const welcome = document.querySelectorAll(".welcome");
-//   console.log(welcome);
-//   clouds.style.animation = `cloudsFadeIn 3s ease forwards `;
-//   setTimeout(() => {
-//     welcome.forEach((headerTag, index) => {
-//       if (headerTag.classList.contains("fullstack")) {
-//         headerTag.style.animation = ` fullstackFadeIn 3s ease forwards ${index / 5}s `;
-//       } else {
-//         headerTag.style.animation = `cloudsFadeIn 3s ease forwards ${index / 5}s `;
-//       }
-//     });
-//   }, 250);
-// };
 
 const welcomeFadeIn = () => {
   const clouds = document.querySelector(".clouds");
@@ -66,8 +33,7 @@ const welcomeFadeIn = () => {
     { opacity: 1, x: 0, rotationY: 0, rotationZ: 0 },
     "-=1",
   );
-
-  if (window.innerWidth > 400) {
+  if (window.innerWidth > 500) {
     welcomeTL.fromTo(welcomeHello, { opacity: 1, x: 0 }, { opacity: 0 }, "+=1");
     welcomeTL.fromTo(
       lastname,
@@ -75,7 +41,7 @@ const welcomeFadeIn = () => {
       { display: "block", rotationX: 0, opacity: 1 },
       "-=1.5",
     );
-    welcomeTL.fromTo(hello, { x: 0 }, { x: -235 }, "-=1");
+    welcomeTL.fromTo(hello, { x: 0 }, { x: -250 }, "-=1");
   }
   welcomeTL.fromTo(arrow, { y: +20, opacity: 0 }, { y: 0, opacity: 1 }, "-=1");
 };
@@ -108,14 +74,90 @@ const buttonOnClick = () => {
     setTimeout(() => {
       verticalNav.classList.toggle("vertical-nav__toggled");
     }, 500);
-    // setTimeout(() => {
-
-    // }, 420);
   });
 };
 
-const body = document.querySelector("body");
+const navSlide = () => {
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".nav-links");
+  const navLinks = document.querySelectorAll(".nav-links li");
+  burger.addEventListener("click", () => {
+    if (nav.style.opacity === "" || nav.style.opacity === "0") {
+      nav.style.display = "flex";
+      gsap.to(nav, { opacity: 1 });
+      burger.classList.toggle("toggle");
+    } else {
+      burger.classList.toggle("toggle");
+      gsap.to(nav, { opacity: 0 });
+      nav.style.display = "none";
+    }
+    navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = "";
+      } else {
+        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+      }
+    });
+  });
+};
 
+const navLink = (link) => {
+  let x;
+  let burger = document.querySelector(".burger");
+  let navBar = document.querySelector(".nav-links");
+  let navLinks = document.querySelectorAll(".nav-links li");
+  let screenSize = window.pageXOffset;
+  switch (link) {
+    case "about":
+      x = document.getElementById("about").offsetTop;
+      window.scrollTo({
+        top: x - 150,
+        left: 0,
+        behavior: "smooth",
+      });
+      burger.classList.toggle("toggle");
+
+      if (screenSize < 768) {
+        gsap.to(navBar, { opacity: "0", display: "none" });
+        navLinks.forEach((link, index) => {
+          link.style.animation = "";
+        });
+      }
+      break;
+    case "projects":
+      x = document.getElementById("projects").offsetTop;
+      window.scrollTo({
+        top: x - 150,
+        left: 0,
+        behavior: "smooth",
+      });
+      burger.classList.toggle("toggle");
+      if (screenSize < 768) {
+        gsap.to(navBar, { opacity: "0", display: "none" });
+        navLinks.forEach((link, index) => {
+          link.style.animation = "";
+        });
+      }
+      break;
+    case "contact":
+      x = document.getElementById("contact").offsetTop;
+      window.scrollTo({
+        top: x - 150,
+        left: 0,
+        behavior: "smooth",
+      });
+      burger.classList.toggle("toggle");
+      if (screenSize < 768) {
+        gsap.to(navBar, { opacity: "0", display: "none" });
+        navLinks.forEach((link, index) => {
+          link.style.animation = "";
+        });
+      }
+      break;
+  }
+};
+
+//ANIMATIONS _____________
 //vertical nav
 const vertNav = document.querySelector(".vertical-nav");
 const nav = document.querySelector("nav");
@@ -135,31 +177,10 @@ const portfolioUnderline = document.querySelector(".projects__underline");
 const techSkills = document.querySelector("#technical");
 const skills = document.querySelectorAll(".projects-skills-languages");
 let y = 0;
-
-// project section
-const horzLineBreak = document.querySelector(".horizontal-line-break");
-const project = document.querySelector(".projects-projects__container");
-const projectsHeader = document.querySelector("#projects-header");
-const projectSections = document.querySelectorAll(".projects__container");
-const gifLeft = document.querySelectorAll(".projects-gif__left");
-const gifRight = document.querySelectorAll(".projects-gif__right");
-const projectAboutRight = document.querySelectorAll(".projects-about__right");
-const projectAboutLeft = document.querySelectorAll(".projects-about__left");
-let z = 0;
-//second section
-let j = 0;
-//third
-let k = 0;
-//fourth
-let l = 0;
 scroll = () => {
   const section = document.querySelectorAll("section");
-
-  overflow();
-
-  console.log(projectSections[3].offsetTop - window.scrollY);
-  // console.log(projectSections[1]);
   if (section[0].offsetTop - window.scrollY < 200 && x === 0) {
+    console.log("first section animations");
     gsap.fromTo(vertNav, { x: -20, opacity: 0 }, { x: 0, opacity: 1 });
     aboutTL = gsap.timeline({ defaults: { duration: 0.8, ease: "power3.inOut" } });
     aboutTL.fromTo(about, { x: -200, opacity: 0 }, { x: 0, opacity: 1 });
@@ -191,84 +212,42 @@ scroll = () => {
     portTL.fromTo(skills[0], { y: +10, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.6");
     portTL.fromTo(skills[1], { y: +10, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.5");
     portTL.fromTo(skills[2], { y: +10, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.4");
-  } else if (project.offsetTop - window.scrollY < 400 && z === 0) {
-    let projectAboutR = projectAboutRight[0].children[0].children;
-    firstTL = gsap.timeline({ defaults: { duration: 0.7, ease: "power3.inOut" } });
-    z += 1;
-    console.log(projectsHeader);
-    firstTL.fromTo(horzLineBreak, { y: 20, opacity: 0 }, { y: 0, opacity: 1 });
-    firstTL.fromTo(projectsHeader, { y: 20, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.6");
-    firstTL.fromTo(gifLeft[0], { x: -200, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.5");
-    firstTL.fromTo(projectAboutR[0], { x: 200, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.4");
-    firstTL.fromTo(projectAboutR[1], { x: 200, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.35");
-    firstTL.fromTo(projectAboutR[2].children[0], { y: 200, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.3");
-    firstTL.fromTo(projectAboutR[2].children[1], { y: 200, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.3");
-  } else if (projectSections[1].offsetTop - window.scrollY < -2300 && j === 0) {
-    let projectAboutL = projectAboutLeft[0].children[0].children;
-    secondTL = gsap.timeline({ defaults: { duration: 0.7, ease: "power3.inOut" } });
-    j += 1;
-    secondTL.fromTo(gifRight[0], { x: 100, opacity: 0 }, { x: 0, opacity: 1 });
-    secondTL.fromTo(projectAboutL[0], { x: -200, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.4");
-    secondTL.fromTo(projectAboutL[1], { x: -200, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.35");
-    secondTL.fromTo(projectAboutL[2].children[0], { y: 200, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.3");
-    secondTL.fromTo(projectAboutL[2].children[1], { y: 200, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.3");
-  } else if (projectSections[2].offsetTop - window.scrollY < -2775 && k === 0) {
-    console.log("now");
-    let projectAboutR = projectAboutRight[1].children[0].children;
-    console.log(projectAboutR);
-    thirdTL = gsap.timeline({ defaults: { duration: 0.7, ease: "power3.inOut" } });
-    k += 1;
-    thirdTL.fromTo(gifLeft[1], { x: -200, opacity: 0 }, { x: 0, opacity: 1 });
-    thirdTL.fromTo(projectAboutR[0], { x: 200, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.4");
-    thirdTL.fromTo(projectAboutR[1], { x: 200, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.35");
-    thirdTL.fromTo(projectAboutR[2].children[0], { y: 200, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.3");
-    thirdTL.fromTo(projectAboutR[2].children[1], { y: 200, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.3");
-  } else if (projectSections[3].offsetTop - window.scrollY < -3400 && l === 0) {
-    let projectAboutL = projectAboutLeft[1].children[0].children;
-    fourthTL = gsap.timeline({ defaults: { duration: 0.7, ease: "power3.inOut" } });
-    l += 1;
-    fourthTL.fromTo(gifRight[1], { x: 100, opacity: 0 }, { x: 0, opacity: 1 });
-    fourthTL.fromTo(projectAboutL[0], { x: -200, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.4");
-    fourthTL.fromTo(projectAboutL[1], { x: -200, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.35");
-    fourthTL.fromTo(projectAboutL[2].children[0], { y: 200, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.3");
-    fourthTL.fromTo(projectAboutL[2].children[1], { y: 200, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.3");
   } else if (section[1].offsetTop - window.scrollY > 430 && y === 1) {
     y = z = j = k = l = 0;
     let projectAboutR = projectAboutRight[0].children[0].children;
     let projectAboutL = projectAboutLeft[0].children[0].children;
     let projectAboutR1 = projectAboutRight[1].children[0].children;
     let projectAboutL1 = projectAboutLeft[1].children[0].children;
-    console.log(y);
     gsap.to(portfolio, { x: -200, opacity: 0 });
     gsap.to(portfolioUnderline, { x: +200, opacity: 0 });
     gsap.to(techSkills, { y: -10, opacity: 0 });
     gsap.to(skills[0], { y: +10, opacity: 0 });
     gsap.to(skills[1], { y: +10, opacity: 0 });
     gsap.to(skills[2], { y: +10, opacity: 0 });
-    gsap.to(gifLeft[0], { x: -100, opacity: 0 });
-    gsap.to(projectsHeader, { y: 20, opacity: 0 });
-    gsap.to(horzLineBreak, { y: 20, opacity: 0 });
-    gsap.to(projectAboutR[0], { x: 200, opacity: 0 });
-    gsap.to(projectAboutR[1], { x: 200, opacity: 0 });
-    gsap.to(projectAboutR[2].children[0], { y: 200, opacity: 0 });
-    gsap.to(projectAboutR[2].children[1], { y: 200, opacity: 0 });
-    gsap.to(gifRight[0], { x: 100, opacity: 0 });
-    gsap.to(projectAboutL[0], { x: -200, opacity: 0 });
-    gsap.to(projectAboutL[1], { x: -200, opacity: 0 });
-    gsap.to(projectAboutL[2].children[0], { y: 200, opacity: 0 });
-    gsap.to(projectAboutL[2].children[1], { y: 200, opacity: 0 });
-    gsap.to(gifLeft[1], { x: -100, opacity: 0 });
-    gsap.to(projectAboutR1[0], { x: 200, opacity: 0 });
-    gsap.to(projectAboutR1[1], { x: 200, opacity: 0 });
-    gsap.to(projectAboutR1[2].children[0], { y: 200, opacity: 0 });
-    gsap.to(projectAboutR1[2].children[1], { y: 200, opacity: 0 });
-    gsap.to(gifRight[1], { x: 100, opacity: 0 });
-    gsap.to(projectAboutL1[0], { x: -200, opacity: 0 });
-    gsap.to(projectAboutL1[1], { x: -200, opacity: 0 });
-    gsap.to(projectAboutL1[2].children[0], { y: 200, opacity: 0 });
-    gsap.to(projectAboutL1[2].children[1], { y: 200, opacity: 0 });
   }
 };
+
+const container = document.querySelectorAll(".projects__container");
+const ScrollTrigger = () => {
+  container.forEach((el, index) => {
+    let containerTl = new gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: "top center",
+        toggleActions: "play none none reverse",
+        markers: false,
+      },
+      defaults: {
+        duration: "0.7",
+        ease: "power3.inOut",
+      },
+    });
+    containerTl.fromTo(el.children[0], { x: -100, opacity: 0 }, { x: 0, opacity: 1 });
+    containerTl.fromTo(el.children[1], { x: 100, opacity: 0 }, { x: 0, opacity: 1 }, "+0.2");
+  });
+};
+
+//ANIMATIONS END _____________ EVENTLISTENER FOR SCROLL BELOW
 
 window.addEventListener("scroll", () => scroll());
 aboutImage.addEventListener("mouseenter", () => {
@@ -279,6 +258,8 @@ aboutImage.addEventListener("mouseenter", () => {
     gsap.to(hover, { opacity: 0 });
   }
 });
+
+//about image hover
 aboutImage.addEventListener("mouseleave", () => {
   gsap.to(vertLine, { width: 200, opacity: 1 });
   gsap.to(horzLine, { width: 200, top: -20, opacity: 1 });
@@ -288,16 +269,8 @@ aboutImage.addEventListener("mouseleave", () => {
   }
 });
 
-const loadingGif = () => {
-  const gif = document.querySelector("iframe");
-  // body.style.overflow = "hidden";
-  setTimeout(() => {
-    body.style.overflow = "visible";
-    gsap.to(gif, { opacity: 0, scale: 2 });
-  }, 3000);
-};
-
-window.onload = () => {
+const initializeContact = () => {
+  emailjs.init("user_9isBXwaZumJLmdq2e7bFo");
   document.getElementById("contact-form").addEventListener("submit", function (event) {
     event.preventDefault();
     const host = document.querySelector("#user_name").value;
@@ -332,71 +305,8 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-//disable scrolling when nav is in mobile view
-const overflow = () => {
-  if (window.pageXOffset !== 0) {
-    window.scrollTo(0, window.pageYOffset);
-  }
-};
-
-const navLink = (link) => {
-  let x;
-  let burger = document.querySelector(".burger");
-  let navBar = document.querySelector(".nav-links");
-  let navLinks = document.querySelectorAll(".nav-links li");
-
-  switch (link) {
-    case "about":
-      x = document.getElementById("about").offsetTop;
-      window.scrollTo({
-        top: x - 150,
-        left: 0,
-        behavior: "smooth",
-      });
-      burger.classList.toggle("toggle");
-      if (window.pageYOffset < 500) {
-        gsap.to(navBar, { opacity: "0" });
-
-        navLinks.forEach((link, index) => {
-          link.style.animation = "";
-        });
-      }
-      break;
-    case "projects":
-      x = document.getElementById("projects").offsetTop;
-      window.scrollTo({
-        top: x - 150,
-        left: 0,
-        behavior: "smooth",
-      });
-      burger.classList.toggle("toggle");
-      if (window.pageYOffset < 500) {
-        gsap.to(navBar, { opacity: "0" });
-        navLinks.forEach((link, index) => {
-          link.style.animation = "";
-        });
-      }
-      break;
-    case "contact":
-      x = document.getElementById("contact").offsetTop;
-      window.scrollTo({
-        top: x - 150,
-        left: 0,
-        behavior: "smooth",
-      });
-      burger.classList.toggle("toggle");
-      if (window.pageYOffset < 500) {
-        gsap.to(navBar, { opacity: "0" });
-        navLinks.forEach((link, index) => {
-          link.style.animation = "";
-        });
-      }
-      break;
-  }
-};
-
+//toTop button
 const toTop = () => {
-  console.log("top");
   window.scrollTo({
     top: 0,
     left: 0,
@@ -405,14 +315,13 @@ const toTop = () => {
 };
 
 const App = () => {
+  initializeContact();
   loadingGif();
   navSlide();
   welcomeFadeIn();
   buttonTransform();
   buttonOnClick();
-  (function () {
-    emailjs.init("user_9isBXwaZumJLmdq2e7bFo");
-  })();
+  ScrollTrigger();
 };
 
 App();

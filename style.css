@@ -4,14 +4,22 @@
   box-sizing: border-box;
 }
 
+:root {
+  --font-stack: "Raleway", sans-serif;
+  --font-landing: "Monseratt", sans-serif;
+}
+
 body::-webkit-scrollbar {
   display: none;
   width: 0px;
   height: 0px;
-  background: transparent;
 }
 body {
   -ms-overflow-style: none;
+}
+
+.wrapper {
+  overflow-x: hidden;
 }
 
 iframe {
@@ -102,6 +110,7 @@ nav {
     align-items: center;
     width: 35%;
     opacity: 0;
+    display: none;
     transition: 0.2s ease-in-out;
   }
   .nav-links li {
@@ -241,23 +250,22 @@ nav {
 
 .welcome-message__firstSubcontainer {
   display: flex;
-  justify-content: space-between;
-  width: 560px;
+  justify-content: space-evenly;
+  padding: 0 20px;
+  width: 650px;
   height: 10vh;
 }
-
 .lastname {
   position: absolute;
-  right: -235px;
+  right: -210px;
 }
 
 .clouds {
   position: relative;
-
   background: transparent url(clouds.png) center;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -388,11 +396,6 @@ section {
   grid-template-rows: repeat(10, 1fr);
 }
 
-.projects-section {
-  height: auto;
-  min-height: 250vh;
-}
-
 .vertical-nav {
   display: block;
   z-index: 3;
@@ -427,7 +430,7 @@ section {
 .vertical-nav li {
   list-style: none;
   margin: 2rem;
-  font-family: "Monseratt", sans-serif;
+  font-family: var(--font-landing);
   color: white;
   z-index: 3;
 }
@@ -442,7 +445,7 @@ section {
 
 .vertical-nav a {
   text-decoration: none;
-  font-family: "Monseratt", sans-serif;
+  font-family: var(--font-landing);
   outline: none;
   color: #d3d3d3;
   cursor: ne-resize;
@@ -476,7 +479,7 @@ section {
 .email {
   transform: rotate(-90deg);
   transition: all 0.2s ease;
-  font-family: "Monseratt", sans-serif;
+  font-family: var(--font-landing);
 }
 
 .email:hover {
@@ -490,7 +493,7 @@ section {
   text-align: center;
   padding: 0 1rem;
   height: 90vh;
-  font-family: "Monseratt", sans-serif;
+  font-family: var(--font-landing);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -498,14 +501,14 @@ section {
 
 .about h2 {
   font-size: 3rem;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   color: #fafafa;
   opacity: 0;
 }
 
 .about h3 {
   font-size: 2rem;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   color: #fafafa;
   position: absolute;
 }
@@ -546,7 +549,7 @@ section {
 
 #hover {
   position: absolute;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   color: rgb(218, 218, 218);
   bottom: 40px;
   z-index: 4;
@@ -603,7 +606,7 @@ section {
 }
 
 .about-content__manifesto p {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   padding: 4rem;
   color: #fafafa;
   line-height: 1.5rem;
@@ -615,9 +618,8 @@ section {
   grid-row: 1 / span 9;
   border-radius: 3px;
   text-align: center;
-  height: 100vh;
   padding: 0 1rem;
-  font-family: "Monseratt", sans-serif;
+  font-family: var(--font-landing);
   display: flex;
   flex-direction: column;
 }
@@ -631,7 +633,7 @@ section {
 
 .projects h2 {
   font-size: 3rem;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   color: #fafafa;
 }
 
@@ -661,7 +663,7 @@ section {
 .projects-skills h3 {
   color: #ee1d52;
   font-size: 1.5rem;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
 }
 
 .projects-skills__container {
@@ -670,14 +672,14 @@ section {
   padding-top: 1rem;
 }
 .projects-skills__container h4 {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   color: white;
 }
 
 .projects-skills-languages {
   display: flex;
   flex-direction: column;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   height: 10vh;
   width: 10vw;
   opacity: 0;
@@ -702,6 +704,11 @@ section {
 .projects-skills-content__container p {
   color: white;
 }
+
+.projects-skills-other__container ul {
+  margin-top: 0.8rem;
+}
+
 .projects-skills-other__container li {
   color: white;
   text-decoration: none;
@@ -709,7 +716,7 @@ section {
   font-size: 0.8rem;
   padding: 0.1rem 0rem;
   text-align: left;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
 }
 
 .fab {
@@ -751,7 +758,7 @@ section {
 .projects-projects__container h3 {
   color: #ee1d52;
   font-size: 1.5rem;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
 }
 
 .projects-items__container {
@@ -792,32 +799,32 @@ section {
 }
 .projects-about__left h4 {
   color: #fafafa;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   font-size: 1.5rem;
-  opacity: 0;
+  opacity: 1;
 }
 
 .projects-about__left p {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   color: #fafafa;
   text-align: left;
-  opacity: 0;
+  opacity: 1;
   padding-top: 1rem;
 }
 
 .projects-about__right h4 {
   color: #fafafa;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   font-size: 1.5rem;
-  opacity: 0;
+  opacity: 1;
 }
 
 .projects-about__right p {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   color: #fafafa;
   text-align: left;
   padding-top: 1rem;
-  opacity: 0;
+  opacity: 1;
 }
 
 .projects-about-project__container {
@@ -843,7 +850,7 @@ section {
   display: flex;
   flex-direction: column;
   color: #ee1d52;
-  opacity: 0;
+  opacity: 1;
 }
 
 #projects {
@@ -862,7 +869,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 75vh;
+  min-height: 30vh;
 }
 
 .contact-section form {
@@ -875,7 +882,7 @@ section {
 input {
   margin-bottom: 0.5rem;
   font-size: 1rem;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   outline: none;
   border-radius: 3px;
   border: none;
@@ -885,7 +892,7 @@ input {
 }
 
 textarea {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   min-width: 25vw;
   font-size: 1rem;
   background-color: #2b2828;
@@ -903,13 +910,13 @@ textarea:focus {
 }
 
 #question {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   padding-top: 2rem;
   color: #fafafa;
 }
 
 .contact-section h2 {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   color: #fafafa;
   font-size: 3rem;
 
@@ -931,7 +938,7 @@ textarea:focus {
 
 #submit-message {
   font-size: 0.9rem;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
 }
 
 .submit-contents {
@@ -957,7 +964,7 @@ textarea:focus {
 }
 
 .back-to-top p {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-stack);
   color: #fafafa;
 }
 
@@ -970,7 +977,7 @@ textarea:focus {
 
 @media only screen and (max-width: 1050px) {
   .logo img {
-    width: 40px;
+    width: 30px;
     height: auto;
   }
 
@@ -984,10 +991,6 @@ textarea:focus {
 
   textarea {
     width: 100%;
-  }
-
-  .projects-section {
-    min-height: 325vh;
   }
 
   .vertical-nav {
@@ -1079,7 +1082,7 @@ textarea:focus {
 
     text-align: center;
     margin-top: 15vh;
-    font-family: "Monseratt", sans-serif;
+    font-family: var(--font-landing);
 
     display: flex;
     flex-direction: column;
@@ -1093,10 +1096,6 @@ textarea:focus {
     justify-content: center;
     flex-direction: column;
     width: 100vw;
-  }
-
-  html {
-    overflow-x: hidden;
   }
 
   .about-content__image {
@@ -1157,7 +1156,6 @@ textarea:focus {
   }
   .projects-section {
     justify-content: flex-start;
-    height: 400vh;
   }
 }
 
@@ -1190,6 +1188,7 @@ textarea:focus {
 
   .hello {
     margin-left: none;
+    width: 20vh;
   }
 
   .lastname {
@@ -1208,10 +1207,6 @@ textarea:focus {
 
   .vertical-nav li {
     position: none;
-  }
-
-  .projects-section {
-    height: 470vh;
   }
 
   .projects-skills-languages {

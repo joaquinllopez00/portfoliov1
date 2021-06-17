@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>JL</title>
@@ -21,7 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -61,25 +60,27 @@
           </button>
         </div>
       </div>
-      <main>
-        <nav>
-          <ul class="nav-links">
-            <li>
-              <a onclick="navLink('about')">About</a>
-            </li>
-            <li>
-              <a onclick="navLink('projects')">Portfolio</a>
-            </li>
-            <li>
-              <a onclick="navLink('contact')">Contact Me</a>
-            </li>
-          </ul>
-          <div class="burger">
-            <div class="top-line"></div>
-            <div class="middle-line"></div>
-            <div class="bottom-line"></div>
-          </div>
-        </nav>
+    </div>
+    <main>
+      <nav>
+        <ul class="nav-links">
+          <li>
+            <a onclick="navLink('about')">About</a>
+          </li>
+          <li>
+            <a onclick="navLink('projects')">Portfolio</a>
+          </li>
+          <li>
+            <a onclick="navLink('contact')">Contact Me</a>
+          </li>
+        </ul>
+        <div class="burger">
+          <div class="top-line"></div>
+          <div class="middle-line"></div>
+          <div class="bottom-line"></div>
+        </div>
+      </nav>
+      <div class="wrapper">
         <div class="vertical-nav">
           <div class="logo">
             <img src="./logo2.png" />
@@ -94,6 +95,9 @@
               <a target="_blank" href="https://www.linkedin.com/in/joaquin-lopez-a955451a8/"
                 ><i class="fab fa-linkedin fa-2x"></i
               ></a>
+            </li>
+            <li class="github">
+              <a target="_blank" href="https://gitlab.com/joaquinllopez00"><i class="fab fa-gitlab fa-2x"></i></a>
             </li>
             <!-- <li>
               <a h"www.github.com/joaquinlopez00"></a>ref=
@@ -159,12 +163,15 @@
                         <li>MongoDb</li>
                         <li>Mongoose</li>
                         <li>Node.js</li>
+                        <li>GraphQL</li>
                       </ul>
                       <ul>
                         <li>Express</li>
                         <li>HTML/CSS</li>
                         <li>Sass</li>
-                        <li>Material UI</li>
+                        <li>Aos</li>
+                        <li>Gatsby</li>
+                        <li>PostgreSQL</li>
                       </ul>
                     </div>
                   </div>
@@ -204,6 +211,7 @@
                           <div class="projects-list__container">
                             <ul>
                               <li>React</li>
+                              <li>Javascript</li>
                               <li>Redux/Redux Persist</li>
                               <li>Node.js</li>
                               <li>Express</li>
@@ -211,8 +219,8 @@
                               <li>Joi</li>
                               <li>Bcrypt</li>
                               <li>Mapbox Gl</li>
-                              <li>GSAP + scroll trigger</li>
-                              <li>SCSS</li>
+                              <li>GSAP + Plugins</li>
+                              <li>Sass</li>
                             </ul>
                           </div>
                         </div>
@@ -248,6 +256,7 @@
                           <div class="projects-list__container">
                             <ul>
                               <li>React</li>
+                              <li>Javascript</li>
                               <li>Redux/Redux Persist</li>
                               <li>Styled Components</li>
                               <li>Axios</li>
@@ -275,6 +284,106 @@
                       src="https://giphy.com/embed/PZ6aHqcQHmJdqW95RZ"
                       width="480"
                       height="288"
+                      frameborder="0"
+                      class="giphy-embed"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class="projects-items__container">
+                <div class="projects__container">
+                  <div class="projects-gif__left">
+                    <iframe
+                      src="https://giphy.com/embed/21vrEkbWNIunQoK5d4"
+                      width="480"
+                      height="266"
+                      frameborder="0"
+                      class="giphy-embed"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                  <div class="projects-about__right">
+                    <div class="projects-about__header">
+                      <h4>Twitter-esque Clone</h4>
+                      <p>
+                        This was a class assignment that was aimed at copying the main functionality of Twitter. It
+                        allows users to follow and unfollow users, adding the followed users tweets to current users
+                        dashboard, mention (@) other users which causes the tweet to show up in the mentioned users
+                        notifications, disappearing after being viewed, it also allowed users to create accounts, and
+                        only access protected routes once logged in. No styling was required in this project, so all
+                        styling seen in this project was simply to make the UI a little more appealing. The goal of this
+                        project was to familiarize ourself with Django's views, forms, and handling of POST requests.
+                      </p>
+                      <div class="projects-about-project__container">
+                        <div class="project-info info">
+                          <h5>Built using</h5>
+                          <div class="projects-list__container">
+                            <ul>
+                              <li>Django</li>
+                              <li>Python</li>
+                              <li>SQLite</li>
+                              <li>CSS</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="project-view info">
+                          <h5>View</h5>
+                          <div class="projects-list__container">
+                            <a href="https://github.com/joaquinllopez00/kenzie-twitter" target="_blank"
+                              ><i class="fab fa-github fa-2x"></i
+                            ></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="projects-items__container">
+                <div class="projects__container">
+                  <div class="projects-about__left">
+                    <div class="projects-about__header">
+                      <h4>Cardealio</h4>
+                      <p>
+                        With this project, I set out to create a landing page that was both responsive and modern, with
+                        components that could easily be implemented into other pages. My personal goal with this project
+                        was to familariaze myself with Gatsby as well as getting more comfortable with GraphQL.
+                      </p>
+                      <div class="projects-about-project__container">
+                        <div class="project-info info">
+                          <h5>Built using</h5>
+                          <div class="projects-list__container">
+                            <ul>
+                              <li>Gatsby</li>
+                              <li>React</li>
+                              <li>Javascript</li>
+                              <li>GraphQL</li>
+                              <li>Aos</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="project-view info">
+                          <h5>View</h5>
+                          <div class="projects-list__container">
+                            <a href="https://github.com/joaquinllopez00/video-games-imbd" target="_blank"
+                              ><i class="fab fa-github fa-2x"></i
+                            ></a>
+                            <a
+                              href="https://joaquinllopez00.github.io/video-games-imbd/#/video-games-imbd/"
+                              target="_blank"
+                              ><i class="fas fa-link fa-2x"></i
+                            ></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="projects-gif__right">
+                    <iframe
+                      src="https://giphy.com/embed/PLhGPMD2TgUpLbm87Q"
+                      width="480"
+                      height="274"
                       frameborder="0"
                       class="giphy-embed"
                       allowfullscreen
@@ -395,9 +504,10 @@
           <p>Joaquin Lopez © 2021</p>
           <i onclick="toTop()" class="fas fa-arrow-circle-up fa-2x to-top"></i>
         </div>
-      </main>
-
-      <script src="app.js"></script>
-    </div>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
