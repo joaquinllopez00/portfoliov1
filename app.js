@@ -180,7 +180,6 @@ let y = 0;
 scroll = () => {
   const section = document.querySelectorAll("section");
   if (section[0].offsetTop - window.scrollY < 200 && x === 0) {
-    console.log("first section animations");
     gsap.fromTo(vertNav, { x: -20, opacity: 0 }, { x: 0, opacity: 1 });
     aboutTL = gsap.timeline({ defaults: { duration: 0.8, ease: "power3.inOut" } });
     aboutTL.fromTo(about, { x: -200, opacity: 0 }, { x: 0, opacity: 1 });
@@ -301,6 +300,7 @@ const initializeContact = () => {
   });
 };
 
+//scrolls to top on refresh
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
