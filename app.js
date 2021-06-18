@@ -106,7 +106,8 @@ const navLink = (link) => {
   let burger = document.querySelector(".burger");
   let navBar = document.querySelector(".nav-links");
   let navLinks = document.querySelectorAll(".nav-links li");
-  let screenSize = window.pageXOffset;
+  let screenSize = window.innerWidth;
+  console.log(screenSize);
   switch (link) {
     case "about":
       x = document.getElementById("about").offsetTop;
@@ -117,7 +118,7 @@ const navLink = (link) => {
       });
       burger.classList.toggle("toggle");
 
-      if (screenSize < 768) {
+      if (screenSize <= 768) {
         gsap.to(navBar, { opacity: "0", display: "none" });
         navLinks.forEach((link, index) => {
           link.style.animation = "";
@@ -132,7 +133,7 @@ const navLink = (link) => {
         behavior: "smooth",
       });
       burger.classList.toggle("toggle");
-      if (screenSize < 768) {
+      if (screenSize <= 768) {
         gsap.to(navBar, { opacity: "0", display: "none" });
         navLinks.forEach((link, index) => {
           link.style.animation = "";
