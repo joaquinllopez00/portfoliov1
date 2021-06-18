@@ -214,10 +214,6 @@ scroll = () => {
     portTL.fromTo(skills[2], { y: +10, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.4");
   } else if (section[1].offsetTop - window.scrollY > 430 && y === 1) {
     y = z = j = k = l = 0;
-    let projectAboutR = projectAboutRight[0].children[0].children;
-    let projectAboutL = projectAboutLeft[0].children[0].children;
-    let projectAboutR1 = projectAboutRight[1].children[0].children;
-    let projectAboutL1 = projectAboutLeft[1].children[0].children;
     gsap.to(portfolio, { x: -200, opacity: 0 });
     gsap.to(portfolioUnderline, { x: +200, opacity: 0 });
     gsap.to(techSkills, { y: -10, opacity: 0 });
