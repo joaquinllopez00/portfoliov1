@@ -1232,7 +1232,7 @@ textarea:focus {
   }
 
   iframe {
-    width: 300px;
     margin-left: 15px;
+    object-fit: cover;
   }
 }
