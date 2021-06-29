@@ -107,7 +107,7 @@ const navLink = (link) => {
   let navBar = document.querySelector(".nav-links");
   let navLinks = document.querySelectorAll(".nav-links li");
   let screenSize = window.innerWidth;
-  console.log(screenSize);
+
   switch (link) {
     case "about":
       x = document.getElementById("about").offsetTop;
