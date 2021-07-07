@@ -159,13 +159,15 @@ const navLink = (link) => {
 };
 
 //ANIMATIONS _____________
-//vertical nav
+
+const aboutImage = document.querySelector(".about-content__image");
 const vertNav = document.querySelector(".vertical-nav");
 const nav = document.querySelector("nav");
+
 //section 1
 const about = document.querySelector("#about");
 const aboutUnderline = document.querySelector(".about__underline");
-const aboutImage = document.querySelector(".about-content__image");
+
 const aboutHello = document.querySelector("#about-hello");
 const aboutContent = document.querySelector("#about-hello__content");
 const vertLine = document.querySelector("#about__vertical-line");
@@ -177,9 +179,11 @@ const portfolio = document.querySelector("#projects");
 const portfolioUnderline = document.querySelector(".projects__underline");
 const techSkills = document.querySelector("#technical");
 const skills = document.querySelectorAll(".projects-skills-languages");
+const section = document.querySelectorAll("section");
+
 let y = 0;
 scroll = () => {
-  const section = document.querySelectorAll("section");
+  navStyle();
   if (section[0].offsetTop - window.scrollY < 200 && x === 0) {
     gsap.fromTo(vertNav, { x: -20, opacity: 0 }, { x: 0, opacity: 1 });
     aboutTL = gsap.timeline({ defaults: { duration: 0.8, ease: "power3.inOut" } });
@@ -297,9 +301,18 @@ const initializeContact = () => {
   });
 };
 
-//scrolls to top on refresh
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
+//toggles transparency of Nav Bar
+const offsetTop = nav.offsetTop;
+let navTransparent = false;
+const navStyle = () => {
+  console.log(offsetTop, window.scrollY);
+  if (window.scrollY > offsetTop + 60) {
+    nav.style.backgroundColor = "rgba(30,30,30,0.8)";
+    vertNav.style.backgroundColor = "rgba(30,30,30,0.8)";
+  } else {
+    nav.style.backgroundColor = "rgba(30,30,30,1)";
+    vertNav.style.backgroundColor = "rgba(30,30,30,1)";
+  }
 };
 
 //toTop button
@@ -311,10 +324,16 @@ const toTop = () => {
   });
 };
 
+//scrolls to top on refresh
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
 const App = () => {
   initializeContact();
   loadingGif();
   navSlide();
+
   welcomeFadeIn();
   buttonTransform();
   buttonOnClick();
