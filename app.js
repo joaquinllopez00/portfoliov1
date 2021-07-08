@@ -1,9 +1,8 @@
 const loadingGif = () => {
   const gif = document.querySelector("iframe");
-
   setTimeout(() => {
     document.body.style.overflow = "visible";
-    gsap.to(gif, { opacity: 0, scale: 2 });
+    gsap.to(gif, { opacity: 0 });
   }, 3000);
 };
 
@@ -25,14 +24,9 @@ const welcomeFadeIn = () => {
   const welcomeTL = gsap.timeline({ defaults: { duration: 0.7, ease: "power4.inOut" } });
   welcomeTL.fromTo(backdrop, { opacity: 1 }, { opacity: 0, display: "none" }, "+=3");
   welcomeTL.fromTo(clouds, { opacity: 0 }, { opacity: 1 }, "-=0.5");
-  welcomeTL.fromTo(hello, { rotationX: 80, rotationZ: 10, opacity: 0 }, { rotationX: 0, rotationZ: 0, opacity: "1" });
-  welcomeTL.fromTo(fullstack, { opacity: 0, x: -60, rotationY: -180 }, { opacity: 1, x: 0, rotationY: 0 });
-  welcomeTL.fromTo(
-    developer,
-    { opacity: 0, x: 60, rotationY: 180, rotationZ: 180 },
-    { opacity: 1, x: 0, rotationY: 0, rotationZ: 0 },
-    "-=1",
-  );
+  welcomeTL.fromTo(hello, { opacity: 0, y: -20 }, { opacity: 1, y: 0 });
+  welcomeTL.fromTo(fullstack, { opacity: 0, x: -60 }, { opacity: 1, x: 0, rotationY: 0 });
+  welcomeTL.fromTo(developer, { opacity: 0, x: 60 }, { opacity: 1, x: 0, rotationY: 0, rotationZ: 0 }, "-=1");
   if (window.innerWidth > 500) {
     welcomeTL.fromTo(welcomeHello, { opacity: 1, x: 0 }, { opacity: 0 }, "+=1");
     welcomeTL.fromTo(
@@ -305,7 +299,6 @@ const initializeContact = () => {
 const offsetTop = nav.offsetTop;
 let navTransparent = false;
 const navStyle = () => {
-  console.log(offsetTop, window.scrollY);
   if (window.scrollY > offsetTop + 60) {
     nav.style.backgroundColor = "rgba(30,30,30,0.8)";
     vertNav.style.backgroundColor = "rgba(30,30,30,0.8)";
@@ -333,7 +326,6 @@ const App = () => {
   initializeContact();
   loadingGif();
   navSlide();
-
   welcomeFadeIn();
   buttonTransform();
   buttonOnClick();

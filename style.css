@@ -73,9 +73,8 @@ nav {
 
 #contactMe:hover {
   color: white;
-  box-shadow: 0px -0px 20px #ee1d52;
-  background-color: rgba(238, 29, 82, 0.8);
-  border-radius: 3px 3px 3px 3px;
+  text-shadow: 1px 1px 3px #ee1d52;
+  font-size: 0.9rem;
 }
 
 .nav-links a {
@@ -1242,9 +1241,6 @@ textarea:focus {
 
   textarea {
     min-width: 100%;
-  }
-
-  iframe {
   }
 
   .projects-gif__left {
