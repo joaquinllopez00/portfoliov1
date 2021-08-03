@@ -267,22 +267,26 @@ const initializeContact = () => {
   emailjs.init("user_9isBXwaZumJLmdq2e7bFo");
   document.getElementById("contact-form").addEventListener("submit", function (event) {
     event.preventDefault();
-    const host = document.querySelector("#user_name").value;
-    const emailAdd = document.querySelector("#user_email").value;
-    const contents = document.querySelector("#message").value;
+    let host = document.querySelector("#user_name");
+    let emailAdd = document.querySelector("#user_email");
+    let contents = document.querySelector("#message");
     const mess = document.getElementById("submit-message");
     emailjs
       .send("service_97k0vwi", "template_yvwn842", {
-        from_name: host,
+        from_name: host.value,
         to_name: "Joaquin",
-        message: contents,
-        reply_to: emailAdd,
-        from_email: emailAdd,
+        message: contents.value,
+        reply_to: emailAdd.value,
+        from_email: emailAdd.value,
       })
       .then(
         () => {
           mess.style.color = "#1dee7b";
           mess.innerText = "Success! I'll be getting back to you shortly!";
+
+          host.value = "";
+          emailAdd.value = "";
+          contents.value = "";
           setTimeout(() => {
             mess.innerText = "";
           }, 3000);
@@ -290,6 +294,14 @@ const initializeContact = () => {
         (error) => {
           mess.style.color = "#ee1d52";
           mess.innerText = "Something broke, email me at joaquinllopezzz@gmail.com";
+          console.log(host);
+          host.value = "";
+          console.log(host);
+          emailAdd.value = "";
+          contents.value = "";
+          setTimeout(() => {
+            mess.innerText = "";
+          }, 3000);
         },
       );
   });
